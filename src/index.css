@@ -45,3 +45,11 @@
 .button:hover:not(.button-correct):not(.button-wrong) {
     background-color: lightcyan;
 }
+
+.gallows {
+    top: 50%;
+    width: 20%;
+    margin:  0 auto;
+    text-align: center;
+    font-size: xx-large;
+}

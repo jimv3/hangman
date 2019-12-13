@@ -16,6 +16,33 @@ class Key extends React.Component {
         );
     }
 }
+
+class Gallows extends React.Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+            hangmanPics: [' +---+\n     |\n     |\n     |\n   ===',
+                ' +---+\n O   |\n     |\n     |\n   ===',
+                ' +---+\n O   |\n |   |\n     |\n   ===',
+                ' +---+\n O   |\n/|   |\n     |\n   ===',
+                ' +---+\n O   |\n/|\\  |\n     |\n   ===',
+                ' +---+\n O   |\n/|\\  |\n/    |\n   ===',
+                ' +---+\n O   |\n/|\\  |\n/ \\  |\n   ===',
+                ' +---+\n[O   |\n/|\\  |\n/ \\  |\n   ===',
+                ' +---+\n[O]  |\n/|\\  |\n/ \\  |\n   ==='],
+        }
+    }
+    render() {
+        return (
+            <div className="gallows">
+                <pre>
+                    {this.state.hangmanPics[8]}
+                </pre>
+            </div>
+        )
+    }
+}
+
 class Board extends React.Component {
     render() {
         return (
@@ -48,6 +75,7 @@ class Game extends React.Component {
     render() {
         return (
             <div>
+                <Gallows />
                 <Board />
                 <Keyboard />
             </div>
