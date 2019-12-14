@@ -1,9 +1,9 @@
 .letter {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     width: 2.5rem;
-    font-size: 3rem;
+    font-size: 2rem;
     font-weight: 400;
-    padding: .6rem;
+    padding: .2rem;
     margin: .1rem;
     display: inline-block;
 }
