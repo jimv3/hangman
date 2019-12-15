@@ -1,16 +1,16 @@
+.board {
+    margin: 0 auto;
+    text-align: center;
+}
+
 .letter {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     width: 2.5rem;
     font-size: 2rem;
     font-weight: 400;
     padding: .2rem;
-    margin: .1rem;
+    margin: 0;
     display: inline-block;
-}
-
-.board {
-    margin: 0 auto;
-    text-align: center;
 }
 
 .keyboard-row {
@@ -19,31 +19,31 @@
 }
 
 .button {
-    background-color: lightblue;
-    border: 1px solid blue;
+    background-color: #0000AA;
+    border: 1px solid #AAAAAA;
     border-radius: .3rem;
+    color: white;
     cursor: pointer;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     min-width: 1.3rem;
     font-size: 1.2rem;
-    padding: .1rem;
+    padding: .6rem;
     margin: .1rem;
     text-align: center;
     display: inline-block;
 }
 
+.button:hover:not(.button-correct):not(.button-wrong) {
+    background-color: #0000FF;
+}
+
 .button-correct {
-    background-color: lightseagreen;
-    cursor: not-allowed;
+    background-color: #00AA00;
 }
 
 .button-wrong {
-    background-color: lightcoral;
-    cursor: not-allowed;
-}
+    background-color: #AA0000;
 
-.button:hover:not(.button-correct):not(.button-wrong) {
-    background-color: lightcyan;
 }
 
 .gallows {
@@ -52,4 +52,14 @@
     margin:  0 auto;
     text-align: center;
     font-size: xx-large;
+}
+
+.reset {
+    margin: 0 auto;
+    text-align: center;
+}
+
+.winner-loser {
+    margin: 0 auto;
+    text-align: center;
 }
