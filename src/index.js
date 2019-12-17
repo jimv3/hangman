@@ -3,6 +3,24 @@ import ReactDOM from 'react-dom';
 import './index.css';
 
 class RestartButton extends React.Component {
+    constructor(props) {
+        super(props);
+    }
+
+    keyPressed(event) {
+        if (event.keyCode === 13) {
+            window.location.href = 'index.html';
+        }
+    }
+
+    componentWillMount() {
+        document.addEventListener("keypress", this.keyPressed);
+    }
+
+    componentWillUnmount() {
+        document.removeEventListener("keypress", this.keyPressed);
+    }
+
     restart(e) {
         e.preventDefault();
         window.location.href = 'index.html';
@@ -18,6 +36,26 @@ class RestartButton extends React.Component {
 }
 
 class Key extends React.Component {
+    constructor(props) {
+        super(props);
+        this.keyPressed = this.keyPressed.bind(this);
+    }
+
+    keyPressed(event) {
+        let guess = String.fromCharCode(event.charCode).toLowerCase();
+        if (this.props.enabled && this.props.letter === guess) {
+            this.props.action(this);
+        }
+    }
+
+    componentWillMount() {
+        document.addEventListener("keypress", this.keyPressed);
+    }
+
+    componentWillUnmount() {
+        document.removeEventListener("keypress", this.keyPressed);
+    }
+
     keyClicked() {
         if (this.props.enabled)
             this.props.action(this);
