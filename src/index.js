@@ -5,11 +5,13 @@ import './index.css';
 class RestartButton extends React.Component {
     constructor(props) {
         super(props);
+        this.keyPressed = this.keyPressed.bind(this)
     }
 
     keyPressed(event) {
         if (event.keyCode === 13) {
-            window.location.href = 'index.html';
+            this.props.action();
+            //window.location.href = 'index.html';
         }
     }
 
@@ -23,7 +25,8 @@ class RestartButton extends React.Component {
 
     restart(e) {
         e.preventDefault();
-        window.location.href = 'index.html';
+        // window.location.href = 'index.html';
+        this.props.action();
     }
 
     render() {
@@ -189,12 +192,21 @@ function getWord() {
 class Game extends React.Component {
     constructor(props) {
         super(props);
+        this.newGame = this.newGame.bind(this);
         this.guessMade = this.guessMade.bind(this);
         this.state = {
             secretWord: getWord(),
             misses: 0,
             correctGuesses: [],
         }
+    }
+
+    newGame() {
+        this.setState({
+            secretWord: getWord(),
+            misses: 0,
+            correctGuesses: [],
+        });
     }
 
     guessMade(guess) {
@@ -222,7 +234,7 @@ class Game extends React.Component {
                 <div>
                     <Gallows misses={this.state.misses} />
                     <Board correctGuesses={this.state.secretWord.split('')} secretWord={this.state.secretWord} />
-                    <RestartButton />
+                    <RestartButton action={this.newGame} />
                     <WinnerLoser correct={this.state.misses < 8} />
                 </div>
             );
