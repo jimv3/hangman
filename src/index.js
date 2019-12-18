@@ -180,12 +180,16 @@ function getWord() {
         'eagle ferret fox frog goat goose hawk lion lizard llama mole monkey moose mouse mule newt ' +
         'otter owl panda parrot pigeon python rabbit ram rat raven rhino salmon seal shark sheep ' +
         'skunk sloth snake spider stork swan tiger toad trout turkey turtle weasel whale wolf wombat zebra ' +
+        'shrimp lobster crab fish squirrel elk dove dolphin orca penguin ' +
         'amsterdam asheville athens atlanta birmingham chattanooga huntsville knoxville memphis nashville ' +
         'tallahassee topeka chicago denver boulder flagstaff missoula detroit indianapolis boston tampa miami orlando ' +
         'omaha seattle portland murfreesboro shelbyville smyrna lavergne hendersonville gallatin lebanon watertown ' +
         'gainsville jacksonville hershey pittsburgh lewisburg cornersville bucksnort columbia cincinnati ' +
+        'daytona destin lexington albany london paris sacramento phoenix bozeman cheyenne montreal tokyo ' +
+        'moscow vienna juneau anchorage vancouver philadelphia austin houston dallas helsinki cancun honolulu ' +
+        'hartsville jackson louisville ' +
         'blue brown amber orange red yellow green purple indigo cyan magenta black white lavender mauve ' +
-        'lilac tan beige teal pink gray').split(' ');
+        'lilac tan beige teal pink gray violet taupe maroon burgundy chartreuse').split(' ');
     return words[Math.floor(Math.random() * words.length)];
 }
 
