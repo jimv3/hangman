@@ -47,11 +47,9 @@
 }
 
 .gallows {
-    top: 50%;
-    width: 20%;
     margin:  0 auto;
     text-align: center;
-    font-size: xx-large;
+    font-size: x-large;
 }
 
 .reset {

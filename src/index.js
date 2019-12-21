@@ -15,7 +15,7 @@ class RestartButton extends React.Component {
         }
     }
 
-    componentWillMount() {
+    componentDidMount() {
         document.addEventListener("keypress", this.keyPressed);
     }
 
@@ -51,7 +51,7 @@ class Key extends React.Component {
         }
     }
 
-    componentWillMount() {
+    componentDidMount() {
         document.addEventListener("keypress", this.keyPressed);
     }
 
@@ -103,13 +103,13 @@ class Keyboard extends React.Component {
         return (
             <div>
                 <div className="keyboard-row">
-                    {'q w e r t y u i o p'.split(' ').map(letter => <Key kind={this.state.classes[letter.charCodeAt(0) - 97][0]} enabled={this.state.classes[letter.charCodeAt(0) - 97][1]} letter={letter} action={this.keyClicked} />)}
+                    {'q w e r t y u i o p'.split(' ').map(letter => <Key key={'key' + letter} kind={this.state.classes[letter.charCodeAt(0) - 97][0]} enabled={this.state.classes[letter.charCodeAt(0) - 97][1]} letter={letter} action={this.keyClicked} />)}
                 </div>
                 <div className="keyboard-row">
-                    {'a s d f g h j k l'.split(' ').map(letter => <Key kind={this.state.classes[letter.charCodeAt(0) - 97][0]} enabled={this.state.classes[letter.charCodeAt(0) - 97][1]} letter={letter} action={this.keyClicked} />)}
+                    {'a s d f g h j k l'.split(' ').map(letter => <Key key={'key' + letter} kind={this.state.classes[letter.charCodeAt(0) - 97][0]} enabled={this.state.classes[letter.charCodeAt(0) - 97][1]} letter={letter} action={this.keyClicked} />)}
                 </div>
                 <div className="keyboard-row">
-                    {'z x c v b n m'.split(' ').map(letter => <Key kind={this.state.classes[letter.charCodeAt(0) - 97][0]} enabled={this.state.classes[letter.charCodeAt(0) - 97][1]} letter={letter} action={this.keyClicked} />)}
+                    {'z x c v b n m'.split(' ').map(letter => <Key key={'key' + letter} kind={this.state.classes[letter.charCodeAt(0) - 97][0]} enabled={this.state.classes[letter.charCodeAt(0) - 97][1]} letter={letter} action={this.keyClicked} />)}
                 </div>
             </div>
         );
@@ -159,7 +159,7 @@ class Board extends React.Component {
     render() {
         return (
             <div className="board">
-                {this.determineDisplayChar(this.props.secretWord, this.props.correctGuesses).map(l => <p className="letter">{l}</p>)}
+                {this.determineDisplayChar(this.props.secretWord, this.props.correctGuesses).map((l, i) => <p key={'ltr' + i} className="letter">{l}</p>)}
             </div>
         );
     }
@@ -176,20 +176,256 @@ class WinnerLoser extends React.Component {
 }
 
 function getWord() {
-    let words = ('ant baboon badger bat bear beaver camel cat clam cobra cougar coyote crow deer dog donkey duck ' +
-        'eagle ferret fox frog goat goose hawk lion lizard llama mole monkey moose mouse mule newt ' +
-        'otter owl panda parrot pigeon python rabbit ram rat raven rhino salmon seal shark sheep ' +
-        'skunk sloth snake spider stork swan tiger toad trout turkey turtle weasel whale wolf wombat zebra ' +
-        'shrimp lobster crab fish squirrel elk dove dolphin orca penguin ' +
-        'amsterdam asheville athens atlanta birmingham chattanooga huntsville knoxville memphis nashville ' +
-        'tallahassee topeka chicago denver boulder flagstaff missoula detroit indianapolis boston tampa miami orlando ' +
-        'omaha seattle portland murfreesboro shelbyville smyrna lavergne hendersonville gallatin lebanon watertown ' +
-        'gainsville jacksonville hershey pittsburgh lewisburg cornersville bucksnort columbia cincinnati ' +
-        'daytona destin lexington albany london paris sacramento phoenix bozeman cheyenne montreal tokyo ' +
-        'moscow vienna juneau anchorage vancouver philadelphia austin houston dallas helsinki cancun honolulu ' +
-        'hartsville jackson louisville ' +
-        'blue brown amber orange red yellow green purple indigo cyan magenta black white lavender mauve ' +
-        'lilac tan beige teal pink gray violet taupe maroon burgundy chartreuse').split(' ');
+    let words = ['address',
+        'alarm',
+        'album',
+        'amber',
+        'animal',
+        'answer',
+        'ant',
+        'antelope',
+        'apple',
+        'baboon',
+        'baby',
+        'badger',
+        'ball',
+        'banana',
+        'band',
+        'bandage',
+        'bandana',
+        'barn',
+        'bat',
+        'bear',
+        'beaver',
+        'beige',
+        'black',
+        'blackberry',
+        'blue',
+        'blueberry',
+        'boar',
+        'boat',
+        'bore',
+        'bowl',
+        'bracelet',
+        'brown',
+        'burgundy',
+        'camel',
+        'car',
+        'cat',
+        'charm',
+        'chartreuse',
+        'chat',
+        'child',
+        'chimpanzee',
+        'cinnamon',
+        'clam',
+        'cobra',
+        'code',
+        'college',
+        'computer',
+        'concept',
+        'convey',
+        'conveyor',
+        'corn',
+        'cougar',
+        'coyote',
+        'crab',
+        'critter',
+        'crow',
+        'crowd',
+        'cyan',
+        'deer',
+        'dog',
+        'dolphin',
+        'donkey',
+        'dove',
+        'duck',
+        'eagle',
+        'elephant',
+        'elk',
+        'farm',
+        'farmer',
+        'ferret',
+        'fever',
+        'fish',
+        'football',
+        'forge',
+        'forget',
+        'fowl',
+        'fox',
+        'frog',
+        'function',
+        'garden',
+        'gift',
+        'globe',
+        'glove',
+        'goat',
+        'goose',
+        'gorilla',
+        'gray',
+        'green',
+        'guitar',
+        'gymnasium',
+        'hair',
+        'harm',
+        'harmony',
+        'hawk',
+        'house',
+        'indigo',
+        'infant',
+        'jack',
+        'jam',
+        'jar',
+        'jaw',
+        'jewel',
+        'jump',
+        'jungle',
+        'junk',
+        'kangaroo',
+        'laboratory',
+        'lake',
+        'laptop',
+        'lavender',
+        'leader',
+        'ledger',
+        'lemon',
+        'lender',
+        'letter',
+        'lilac',
+        'lion',
+        'lizard',
+        'llama',
+        'lobster',
+        'lotion',
+        'magenta',
+        'mail',
+        'mailbox',
+        'mallet',
+        'mansion',
+        'maroon',
+        'mauve',
+        'megaphone',
+        'melon',
+        'methane',
+        'method',
+        'mistake',
+        'mob',
+        'mole',
+        'monkey',
+        'monsoon',
+        'moose',
+        'mouse',
+        'mule',
+        'mullet',
+        'music',
+        'napkin',
+        'necklace',
+        'newt',
+        'note',
+        'ocean',
+        'office',
+        'orange',
+        'orangutan',
+        'orca',
+        'organ',
+        'otter',
+        'owl',
+        'oyster',
+        'pallet',
+        'panda',
+        'pants',
+        'paper',
+        'parrot',
+        'pen',
+        'pencil',
+        'penguin',
+        'person',
+        'phone',
+        'pig',
+        'pigeon',
+        'pink',
+        'pizza',
+        'plane',
+        'pond',
+        'porch',
+        'powder',
+        'power',
+        'present',
+        'principal',
+        'professor',
+        'purple',
+        'push',
+        'python',
+        'question',
+        'rabbit',
+        'radar',
+        'ram',
+        'rat',
+        'raven',
+        'record',
+        'red',
+        'rhino',
+        'river',
+        'road',
+        'rug',
+        'rythm',
+        'salamander',
+        'salmon',
+        'school',
+        'science',
+        'seal',
+        'shark',
+        'sheep',
+        'shrimp',
+        'shrink',
+        'show',
+        'ski',
+        'skunk',
+        'sky',
+        'sloth',
+        'snake',
+        'soccer',
+        'sour',
+        'speak',
+        'speech',
+        'spider',
+        'squirrel',
+        'stork',
+        'strawberry',
+        'swan',
+        'table',
+        'tan',
+        'taupe',
+        'teacher',
+        'teal',
+        'television',
+        'thief',
+        'tiger',
+        'timer',
+        'toad',
+        'toilet',
+        'toy',
+        'trapeze',
+        'trout',
+        'truck',
+        'turkey',
+        'turtle',
+        'university',
+        'violet',
+        'wagon',
+        'wall',
+        'wallet',
+        'warm',
+        'watermelon',
+        'weasel',
+        'whale',
+        'wheel',
+        'white',
+        'wolf',
+        'wombat',
+        'word',
+        'yellow',
+        'zebra'];
     return words[Math.floor(Math.random() * words.length)];
 }
 
