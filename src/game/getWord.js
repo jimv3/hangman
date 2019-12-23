@@ -303,6 +303,7 @@ export const getWord = () => {
         'pants',
         'paper',
         'park',
+        'part',
         'parrot',
         'peace',
         'peanut',
