@@ -6,11 +6,17 @@ const BoardPieces = styled.div`
   flex-direction: row;
   justify-content: center;
   margin: 40px 0px;
+  font-size: 2rem;
 `
 
 const Piece = styled.div`
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  width: 2.5rem;
+  font-size: 2rem;
+  font-weight: 400;
+  padding: .2rem;
+  margin: 0;
   display: inline-block;
-  margin: 0px 20px;
 `
 
 const determineDisplayChar = (secretWord, correctGuesses) => {

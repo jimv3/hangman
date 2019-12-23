@@ -34,7 +34,7 @@ export const Keyboard = (props) => {
 
     return (
         <div>
-            <div>
+            <div className='keyboard-row'>
                 {topKeys.map(k => (
                     <KeyButton
                         key={`KeyBoardLetter${k.letter}${
@@ -45,7 +45,7 @@ export const Keyboard = (props) => {
                     />
                 ))}
             </div>
-            <div>
+            <div className='keyboard-row'>
                 {middleKeys.map(k => (
                     <KeyButton
                         key={`KeyBoardLetter${k.letter}${
@@ -56,7 +56,7 @@ export const Keyboard = (props) => {
                     />
                 ))}
             </div>
-            <div>
+            <div className='keyboard-row'>
                 {bottomKeys.map(k => (
                     <KeyButton
                         key={`KeyBoardLetter${k.letter}${
