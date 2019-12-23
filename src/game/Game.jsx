@@ -8,7 +8,7 @@ import { getWord } from './getWord'
 import { WinnerLoser } from './WinnerLoser'
 
 export const Game = () => {
-    const [secretWord, setSeceretWord] = React.useState(getWord())
+    const [secretWord] = React.useState(getWord())
     const [correctGuesses, setCorrectGuesses] = React.useState([])
     const [misses, setMisses] = React.useState(0)
     const [gameOver, setGameOver] = React.useState(false)

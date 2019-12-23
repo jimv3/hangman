@@ -1,5 +1,4 @@
 import React from 'react'
-import styled from 'styled-components'
 
 const hangmanPics = [' +---+\n     |\n     |\n     |\n     ===',
     ' +---+\n O   |\n     |\n     |\n     ===',
