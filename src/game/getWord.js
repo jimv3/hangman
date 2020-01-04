@@ -134,6 +134,7 @@ export const getWord = () => {
         'eagle',
         'eclectic',
         'egg',
+        'eggnog',
         'ego',
         'elated',
         'electric',
