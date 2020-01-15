@@ -129,6 +129,7 @@ export const getWord = () => {
         'dog',
         'dolphin',
         'donkey',
+        'donor',
         'dove',
         'dream',
         'duck',

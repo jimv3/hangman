@@ -15,7 +15,7 @@ export const RestartButton = (props) => {
     }
 
     const handleKeyDown = (ev) => {
-        if (ev.key === 'Enter') {
+        if (ev.key === 'Enter' || ev.keyCode === 32) {
             restart()
         }
     }
